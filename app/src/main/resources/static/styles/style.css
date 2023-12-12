@@ -1,0 +1,52 @@
+body {
+    background: rgb(227,181,127);
+    background: linear-gradient(0deg, rgba(227,181,127,1) 0%, rgba(238,220,205,1) 69%);
+    height:auto;
+}
+
+#container {
+    margin: auto;
+    width: 60%;
+    color: #573316;
+}
+
+img.caffeine-logo {
+    width: 200px;
+}
+
+#footer {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+div.ingredient-group:nth-child(odd) {
+	float: left;
+	padding-right: 20px;
+}
+
+div.ingredient-group:nth-child(even) {
+    float: left;
+	padding-right: 0;
+}
+
+div.ingredient-group {
+	width: 50%;
+}
+
+.grid:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+span.validationError {
+	color: red;
+}
