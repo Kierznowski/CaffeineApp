@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Design your coffee</title>
+    <link th:href="@{/styles/style.css}" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="container">
+
+      <div id="logo">
+        <img th:src="@{/images/Caffeine-logo-bg2.png}" class="caffeine-logo"/>
+      </div>
+
+      <header>
+        <h1>Design your own coffee!</h1>
+      </header>
+
+      <div id="form">
+        <form method="POST" th:object="${coffee}">
+
+          <span class="validationError"
+                th:if="${#fields.hasErrors('ingredients')}"
+                th:errors="*{ingredients}">Ingredient Error</span>
+
+          <div class="grid">
+            <div class="ingredient-group" id="beans">
+              <h3>Choose your beans:</h3>
+              <div th:each="ingredient : ${bean}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+              </div>
+            </div>
+
+            <div class="ingredient-group" id="milks">
+              <h3>Choose your milk:</h3>
+              <div th:each="ingredient : ${milk}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+              </div>
+            </div>
+
+            <div class="ingredient-group" id="sweeteners">
+              <h3>Choose your sweetener:</h3>
+              <div th:each="ingredient : ${sweetener}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+              </div>
+            </div>
+
+            <div class="ingredient-group" id="extras">
+              <h3>Choose your extra:</h3>
+              <div th:each="ingredient : ${extra}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+              </div>
+            </div>
+          </div>
+
+            <div>
+              <h3>Name your Coffee:</h3>
+              <input type="text" th:field="*{name}"/>
+              <br/>
+              <button>Submit</button>
+            </div>
+        </form>
+      </div>
+
+      <div id="footer">
+        Kierznowski 2023
+      </div>
+
+    </div>
+  </body>
+</html>
