@@ -2,6 +2,7 @@ package com.Caffeine.app.controllers;
 
 import com.Caffeine.app.model.CoffeeOrder;
 import com.Caffeine.app.repositories.OrderRepository;
+
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -16,10 +17,10 @@ import org.springframework.web.bind.support.SessionStatus;
 @SessionAttributes("coffeeOrder")
 public class OrderController {
 
-    private OrderRepository orderRepo;
+    private OrderRepository orderRepository;
 
-    public OrderController(OrderRepository orderRepo) {
-        this.orderRepo = orderRepo;
+    public OrderController(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
     }
 
     @GetMapping("/current")
@@ -36,7 +37,7 @@ public class OrderController {
             return "orderForm";
         }
 
-        orderRepo.save(order);
+        orderRepository.save(order);
         sessionStatus.setComplete();
 
         return "redirect:/";

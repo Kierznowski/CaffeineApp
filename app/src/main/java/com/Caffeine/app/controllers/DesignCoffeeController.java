@@ -6,8 +6,8 @@ import com.Caffeine.app.model.Ingredient;
 import com.Caffeine.app.model.Ingredient.Type;
 import com.Caffeine.app.repositories.IngredientRepository;
 
-import javax.validation.Valid;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,17 +23,17 @@ import java.util.stream.Collectors;
 @SessionAttributes("coffeeOrder")
 public class DesignCoffeeController {
 
-    private final IngredientRepository ingredientRepo;
+    private final IngredientRepository ingredientRepository;
 
     @Autowired
-    public DesignCoffeeController(IngredientRepository ingredientRepo) {
-        this.ingredientRepo = ingredientRepo;
+    public DesignCoffeeController(IngredientRepository ingredientRepository) {
+        this.ingredientRepository = ingredientRepository;
     }
 
     @ModelAttribute
     public void addIngredientsToModel (Model model) {
         List<Ingredient> ingredients = new ArrayList<>();
-        ingredientRepo.findAll().forEach(i -> ingredients.add(i));
+        ingredientRepository.findAll().forEach(i -> ingredients.add(i));
 
         Type[] types = Ingredient.Type.values();
         for (Type type : types) {
