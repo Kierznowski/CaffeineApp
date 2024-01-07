@@ -1,4 +1,4 @@
-<h1>Caffeine App</h1>
+<h1>☕ Caffeine App ☕</h1>
 
 This is portoflio application. Web application for ordering coffee. Besides basics like order form I'm going to implement User Accounts and Payments using Spring Security.
 
