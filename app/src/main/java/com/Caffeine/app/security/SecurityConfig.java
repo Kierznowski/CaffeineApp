@@ -48,6 +48,8 @@ public class SecurityConfig {
                         userInfo.userAuthoritiesMapper(grantedAuthoritiesMapper()))
                         .loginPage("/login")
                         .permitAll())
+                .formLogin(form -> form.loginPage("/login").permitAll())
+
 
                 .build();
     }

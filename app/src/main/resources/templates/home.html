@@ -10,5 +10,9 @@
 <body>
     <h1>Welcome to...</h1>
     <img th:src="@{/images/Caffeine-logo.png}" .class="main-logo" alt="logo"/>
+
+    <form method="POST" th:action="@{/logout}" id="logout">
+        <input type="submit" value="Log out">
+    </form>
 </body>
 </html>
