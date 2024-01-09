@@ -1,9 +1,11 @@
 package com.Caffeine.app.controllers;
 
 import com.Caffeine.app.model.CoffeeOrder;
+import com.Caffeine.app.model.User;
 import com.Caffeine.app.repositories.OrderRepository;
 
 import jakarta.validation.Valid;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,11 +33,14 @@ public class OrderController {
     @PostMapping
     public String processOrder(@Valid CoffeeOrder order,
                                Errors errors,
-                               SessionStatus sessionStatus) {
+                               SessionStatus sessionStatus,
+                               @AuthenticationPrincipal User user) {
 
         if(errors.hasErrors()) {
             return "orderForm";
         }
+
+        order.setUser(user);
 
         orderRepository.save(order);
         sessionStatus.setComplete();

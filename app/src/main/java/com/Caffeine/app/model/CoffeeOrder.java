@@ -13,6 +13,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name="Coffee_Orders")
 public class CoffeeOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,6 +47,9 @@ public class CoffeeOrder implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Coffee> coffees = new ArrayList<>();
+
+    @ManyToOne
+    User user;
 
     public void addCoffee(Coffee coffee) {
         this.coffees.add(coffee);
