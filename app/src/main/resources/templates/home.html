@@ -8,11 +8,16 @@
     <link th:href="@{/styles/style.css}" rel="stylesheet">
 </head>
 <body>
+<div>
     <h1>Welcome to...</h1>
-    <img th:src="@{/images/Caffeine-logo.png}" .class="main-logo" alt="logo"/>
+    <img th:src="@{/images/Caffeine-logo.png}" .class="main-logo" alt="logo" width="350px"/>
 
+</div>
+<div>
     <form method="POST" th:action="@{/logout}" id="logout">
         <input type="submit" value="Log out">
     </form>
+</div>
+
 </body>
 </html>

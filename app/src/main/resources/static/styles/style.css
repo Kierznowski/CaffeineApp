@@ -1,8 +1,8 @@
 body {
     background: rgb(227,181,127);
-    background: linear-gradient(0deg, rgba(227,181,127,1) 0%, rgba(238,220,205,1) 69%);
-    height:auto;
-}
+    background: linear-gradient(0deg, rgba(227,181,127,1) 0%, rgba(238,220,205,1) 70%);
+    min-height: 100% hv;
+    }
 
 #container {
     margin: auto;
@@ -10,7 +10,7 @@ body {
     color: #573316;
 }
 
-img.caffeine-logo {
+.main-logo {
     width: 200px;
 }
 
