@@ -9,6 +9,9 @@ Status for now:
 - appending order for another coffees, 
 - delivery data form,
 - connection with database via SpringBootJPA,
+- Login and registration, login via Github (OAuth2).
+- Rest API (in progress)
+- front-end (in progress)
 
 
 <i>In folder <b>Other_Versions_For_Excercise</b> I'm adding (as the name suggests) other versions write for excercise purpose (e.g. connection with MongoDB instead of SQL db).
