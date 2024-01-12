@@ -4,6 +4,7 @@ import com.Caffeine.app.model.User;
 import com.Caffeine.app.repositories.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
@@ -42,15 +43,14 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/design", "/orders").hasRole("USER")
                         .requestMatchers("/", "/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "api/*").permitAll()
                         .anyRequest().authenticated())
-                //
+
                 .oauth2Login(oauth2Login -> oauth2Login.userInfoEndpoint(userInfo ->
                         userInfo.userAuthoritiesMapper(grantedAuthoritiesMapper()))
                         .loginPage("/login")
                         .permitAll())
                 .formLogin(form -> form.loginPage("/login").permitAll())
-
-
                 .build();
     }
 

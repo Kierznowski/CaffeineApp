@@ -52,4 +52,29 @@ public class CoffeeController {
     }
 
 
+    @PutMapping(path = "/{id}", consumes = "application/json")
+    public Coffee putCoffee(@PathVariable("id") Long id, @RequestBody Coffee coffee) {
+        coffee.setId(id);
+        return coffeeRepository.save(coffee);
+    }
+
+    @PatchMapping(path = "/{id}", consumes = "application/json")
+    public Coffee patchCoffee(@PathVariable("id") Long id, @RequestBody Coffee patch) {
+        Coffee coffee = coffeeRepository.findById(id).get();
+        if(patch.getName() != null) {
+            coffee.setName(patch.getName());
+        }
+        if (patch.getIngredients() != null) {
+            coffee.setIngredients(patch.getIngredients());
+        }
+        return coffeeRepository.save(coffee);
+    }
+
+    @PatchMapping(path = "/{name}", consumes = "application/json")
+    public Coffee patchCoffee(@PathVariable("name") String name, @RequestBody Coffee patch) {
+        Coffee coffee = coffeeRepository.findByName(name).get();
+        coffee.setIngredients(patch.getIngredients());
+        return coffeeRepository.save(coffee);
+    }
+
 }

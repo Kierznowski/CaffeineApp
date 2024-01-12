@@ -2,22 +2,33 @@
 <html lang="en"
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Caffeine</title>
     <link th:href="@{/styles/style.css}" rel="stylesheet">
 </head>
+
 <body>
-<div>
-    <h1>Welcome to...</h1>
-    <img th:src="@{/images/Caffeine-logo.png}" .class="main-logo" alt="logo" width="350px"/>
+<div class="header">
+    <img id="main-logo" th:src="@{/images/Caffeine-logo-bg.png}" />
+</div>
+<div class="navbar">
+    <form th:action="@{/}" method="GET"><button>Home</button></form>
+    <form th:action="@{/design}" method="GET"><button>Order Coffee</button></form>
+    <form th:action="@{/}" method="GET"><button>About us</button></form>
+    <form th:action="@{/}" method="GET"><button>Contact</button></form>
+        <form method="POST" th:action="@{/logout}" id="logout">
+            <input type="submit" value="Log out">
+        </form>
+
 
 </div>
-<div>
-    <form method="POST" th:action="@{/logout}" id="logout">
-        <input type="submit" value="Log out">
-    </form>
-</div>
+<div class="main-container">
 
+</div>
+<div class="footer">
+    <p>Created by Kierznowski</p>
+</div>
 </body>
 </html>

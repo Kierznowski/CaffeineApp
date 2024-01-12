@@ -1,25 +1,57 @@
 body {
-    background: rgb(227,181,127);
-    background: linear-gradient(0deg, rgba(227,181,127,1) 0%, rgba(238,220,205,1) 70%);
-    min-height: 100% hv;
+    background-color: #eedccd;
+    color: #573316;
+
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh; /* Set minimum height to the viewport height */
+     margin: 0;
     }
 
-#container {
-    margin: auto;
-    width: 60%;
-    color: #573316;
+#main-logo {
+    display: block;
+    max-width: 18%;
+    height: auto;
+    margin: 0 auto;
 }
 
-.main-logo {
-    width: 200px;
-}
 
-#footer {
-    margin-top: 50px;
-    margin-bottom: 30px;
+
+.navbar {
     text-align: center;
-    font-weight: bold;
+    border-top: 2px solid #573316;
+    border-bottom: 2px solid #573316;
+    padding: 5px;
+    margin: 0 auto;
 }
+
+.navbar form {
+    display: inline-block;
+}
+
+.navbar button {
+    font-size: 16 px;
+}
+
+.main-container {
+    flex: 1;
+    text-align: center;
+}
+
+#form {
+    display: inline-block;
+    text-align: left;
+    margin-top: 20px;
+}
+
+
+
+.footer {
+    text-align: center;
+    margin-top: auto;
+    font-family: Monospace "Courier New";
+}
+
 
 div.ingredient-group:nth-child(odd) {
 	float: left;
