@@ -9,15 +9,11 @@
   </head>
 
   <body>
-    <div id="container">
-
-      <div id="logo">
-        <img th:src="@{/images/Caffeine-logo-bg2.png}" class="caffeine-logo" width="350 px"/>
-      </div>
-
-      <header>
-        <h1>Design your own coffee!</h1>
-      </header>
+  <div class="header">
+    <img id="main-logo" th:src="@{/images/Caffeine-logo-bg.png}" />
+  </div>
+  <div class="main-container">
+      <h1>Design your own coffee!</h1>
 
       <div id="form">
         <form method="POST" th:object="${coffee}">
@@ -79,13 +75,12 @@
         </form>
       </div>
 
-      <div id="footer">
-        Kierznowski 2023
-      </div>
-
       <form method="POST" th:action="@{/logout}" id="logout">
         <input type="submit" value="Log out">
       </form>
     </div>
+  <div id="footer">
+    Created by Kierznowski
+  </div>
   </body>
 </html>

@@ -6,6 +6,21 @@
     <link th:href="@{/styles/style.css}" rel="stylesheet">
 </head>
 <body>
+
+<div class="header">
+  <img id="main-logo" th:src="@{/images/Caffeine-logo-bg.png}" />
+</div>
+<div class="navbar">
+  <form th:action="@{/}" method="GET"><button>Home</button></form>
+  <form th:action="@{/design}" method="GET"><button>Order Coffee</button></form>
+  <form th:action="@{/}" method="GET"><button>About us</button></form>
+  <form th:action="@{/}" method="GET"><button>Contact</button></form>
+  <form method="POST" th:action="@{/logout}" id="logout">
+    <input type="submit" value="Log out">
+  </form>
+</div>
+
+<div class="main-container" >
   <h1>Login</h1>
 
   <div th:if="${error}">
@@ -35,7 +50,9 @@
     <a href="/oauth2/authorization/github">GitHub login</a>
 
   </div>
-
-
+</div>
+<div class="footer">
+  <p>Created by Kierznowski</p>
+</div>
 </body>
 </html>
