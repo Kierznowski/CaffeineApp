@@ -5,82 +5,90 @@
   <head>
     <meta charset="UTF-8">
     <title>Design your coffee</title>
-    <link th:href="@{/styles/style.css}" rel="stylesheet">
+    <link th:href="@{/styles/style.css}" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-  <div class="header">
-    <img id="main-logo" th:src="@{/images/Caffeine-logo-bg.png}" />
-  </div>
-  <div class="main-container">
-      <h1>Design your own coffee!</h1>
-
-      <div id="form">
-        <form method="POST" th:object="${coffee}">
-          <input type="hidden"
-                 th:name="${_csrf.parameterName}"
-                 th:value="${_csrf.token}" />
-
-          <span class="validationError"
-                th:if="${#fields.hasErrors('ingredients')}"
-                th:errors="*{ingredients}">Ingredient Error</span>
-
-          <div class="grid">
-            <div class="ingredient-group" id="beans">
-              <h3>Choose your beans:</h3>
-              <div th:each="ingredient : ${bean}">
-                <input th:field="*{ingredients}" type="checkbox"
-                       th:value="${ingredient.id}"/>
-                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
-              </div>
-            </div>
-
-            <div class="ingredient-group" id="milks">
-              <h3>Choose your milk:</h3>
-              <div th:each="ingredient : ${milk}">
-                <input th:field="*{ingredients}" type="checkbox"
-                       th:value="${ingredient.id}"/>
-                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
-              </div>
-            </div>
-
-            <div class="ingredient-group" id="sweeteners">
-              <h3>Choose your sweetener:</h3>
-              <div th:each="ingredient : ${sweetener}">
-                <input th:field="*{ingredients}" type="checkbox"
-                       th:value="${ingredient.id}"/>
-                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
-              </div>
-            </div>
-
-            <div class="ingredient-group" id="extras">
-              <h3>Choose your extra:</h3>
-              <div th:each="ingredient : ${extra}">
-                <input th:field="*{ingredients}" type="checkbox"
-                       th:value="${ingredient.id}"/>
-                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
-              </div>
-            </div>
-          </div>
-
-            <div>
-              <h3>Name your Coffee:</h3>
-              <input type="text" th:field="*{name}"/>
-              <span class="validationError"
-                    th:if="${#fields.hasErrors('name')}"
-                    th:errors="*{name}">Name Error</span>
-              <br/>
-              <button>Submit</button>
-            </div>
+    <div class="page-header">
+      <img id="main-logo" th:src="@{/images/Caffeine-logo-bg.png}" />
+    </div>
+    <div class="container">
+      <div class="navbar">
+        <form th:action="@{/}" method="GET"><button>Home</button></form>
+        <form th:action="@{/design}" method="GET"><button>Order Coffee</button></form>
+        <form th:action="@{/}" method="GET"><button>About us</button></form>
+        <form th:action="@{/}" method="GET"><button>Contact</button></form>
+        <form method="POST" th:action="@{/logout}" id="logout">
+          <input type="submit" value="Log out">
         </form>
       </div>
+      <main class="main">
+        <div id="form">
+          <form method="POST" th:object="${coffee}">
+            <input type="hidden"
+                   th:name="${_csrf.parameterName}"
+                   th:value="${_csrf.token}" />
 
-      <form method="POST" th:action="@{/logout}" id="logout">
-        <input type="submit" value="Log out">
-      </form>
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('ingredients')}"
+                  th:errors="*{ingredients}">Ingredient Error</span>
+
+            <div class="grid">
+              <div class="ingredient-group" id="beans">
+                <h3>Choose your beans:</h3>
+                <div th:each="ingredient : ${bean}">
+                  <input th:field="*{ingredients}" type="checkbox"
+                         th:value="${ingredient.id}"/>
+                  <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                </div>
+              </div>
+
+              <div class="ingredient-group" id="milks">
+                <h3>Choose your milk:</h3>
+                <div th:each="ingredient : ${milk}">
+                  <input th:field="*{ingredients}" type="checkbox"
+                         th:value="${ingredient.id}"/>
+                  <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                </div>
+              </div>
+
+              <div class="ingredient-group" id="sweeteners">
+                <h3>Choose your sweetener:</h3>
+                <div th:each="ingredient : ${sweetener}">
+                  <input th:field="*{ingredients}" type="checkbox"
+                         th:value="${ingredient.id}"/>
+                  <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                </div>
+              </div>
+
+              <div class="ingredient-group" id="extras">
+                <h3>Choose your extra:</h3>
+                <div th:each="ingredient : ${extra}">
+                  <input th:field="*{ingredients}" type="checkbox"
+                         th:value="${ingredient.id}"/>
+                  <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                </div>
+              </div>
+            </div>
+
+              <div>
+                <h3>Name your Coffee:</h3>
+                <input type="text" th:field="*{name}"/>
+                <span class="validationError"
+                      th:if="${#fields.hasErrors('name')}"
+                      th:errors="*{name}">Name Error</span>
+                <br/>
+                <button>Submit</button>
+              </div>
+          </form>
+        </div>
+      </main>
+      <aside class="social-links">
+        <a href="" class="button-link">Follow us on Facebook!</a>
+      </aside>
     </div>
-  <div id="footer">
-    Created by Kierznowski
-  </div>
+    <div class="footer">
+      Created by Kierznowski
+    </div>
   </body>
 </html>
