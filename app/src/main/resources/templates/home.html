@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -18,12 +19,27 @@
             <form th:action="@{/}" method="GET"><button>Home</button></form>
             <form th:action="@{/design}" method="GET"><button>Order Coffee</button></form>
             <form th:action="@{/}" method="GET"><button>About us</button></form>
-            <form th:action="@{/}" method="GET"><button>Contact</button></form>
-            <form method="POST" th:action="@{/logout}" id="logout">
-                <input type="submit" value="Log out">
-            </form>
+            <form th:action="@{/contact}" method="GET"><button>Contact</button></form>
+            <span sec:authorize="hasRole('ROLE_USER')">
+                <form  method="POST" th:action="@{/logout}" id="logout">
+                    <input type="submit" value="Logout">
+                </form>
+            </span>
+            <span sec:authorize="!hasRole('ROLE_USER')">
+                <form  method="POST" th:action="@{/login}" id="login">
+                    <input type="submit" value="Log in">
+                </form>
+            </span>
         </div>
         <main class="main">
+            <h2>What is Caffeine?</h2>
+            <p>Caffeine is a central nervous system (CNS) stimulant of the methylxanthine class...
+                But if you've found the project on Github it's certain that you already familiar with caffeine.</p>
+            <p>What is the Caffeine App? It's simply a portfolio application developed to show some skills for my future employers. </p>
+            <p>It's a web application for ordering designed by your coffee, with delivery to your home.
+            You can save your coffee with a custom composition and name, and order the exact same coffee in the future.</p>
+            <p>Now you might be thinking, "Who in their right mind would order (possibly cold) coffee with delivery to their home and wait for it for 30 minutes? </p>
+            <p>But hey, do you need some coffee? Wake up! It's just a portfolio app.</p>
 
         </main>
     </div>

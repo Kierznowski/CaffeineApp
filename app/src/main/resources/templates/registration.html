@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="httsp://www.thymeleaf.org">
+<html lang="en" xmlns:th="httsp://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Caffeine Register User</title>
@@ -7,43 +8,64 @@
 </head>
 
 <body>
-<div class="main-container">
-    <h1>Register user</h1>
-
-    <form method="POST" th:action="@{/register}" id="registerForm">
-
-        <input type="hidden"
-               th:name="${_csrf.parameterName}"
-               th:value="${_csrf.token}" />
-
-        <label th:for="username">Username: </label>
-        <input type="text" name="username"/><br/>
-
-        <label th:for="password">Password: </label>
-        <input type="password" name="password"/><br/>
-
-        <label th:for="confirm">Confirm password: </label>
-        <input type="password" name="confirm"/><br/>
-
-        <label th:for="fullname">Full name: </label>
-        <input type="text" name="fullname"/><br/>
-
-        <label th:for="street">Street: </label>
-        <input type="text" name="street"/><br/>
-
-        <label th:for="city">City: </label>
-        <input type="text" name="city"/><br/>
-
-        <label th:for="zip">Zip: </label>
-        <input type="text" name="zip"/><br/>
-
-        <label th:for="phone">Phone number: </label>
-        <input type="text" name="phone"/><br/>
-
-        <input type="submit" value="Register"/>
-
-    </form>
+<div class="page-header">
+    <img id="main-logo" th:src="@{/images/Caffeine-logo-bg.png}" />
 </div>
+<div class="container">
+    <div class="navbar">
+        <form th:action="@{/}" method="GET"><button>Home</button></form>
+        <form th:action="@{/design}" method="GET"><button>Order Coffee</button></form>
+        <form th:action="@{/}" method="GET"><button>About us</button></form>
+        <form th:action="@{/contact}" method="GET"><button>Contact</button></form>
+        <span sec:authorize="hasRole('ROLE_USER')">
+                <form  method="POST" th:action="@{/logout}" id="logout">
+                    <input type="submit" value="Logout">
+                </form>
+            </span>
+        <span sec:authorize="!hasRole('ROLE_USER')">
+                <form  method="POST" th:action="@{/login}" id="login">
+                    <input type="submit" value="Log in">
+                </form>
+            </span>
+    </div>
+    <div class="main">
+        <h1>Register user</h1>
+
+        <form method="POST" th:action="@{/register}" id="registerForm">
+
+            <input type="hidden"
+                   th:name="${_csrf.parameterName}"
+                   th:value="${_csrf.token}" />
+
+            <label th:for="username">Username: </label>
+            <input type="text" name="username"/><br/>
+
+            <label th:for="password">Password: </label>
+            <input type="password" name="password"/><br/>
+
+            <label th:for="confirm">Confirm password: </label>
+            <input type="password" name="confirm"/><br/>
+
+            <label th:for="fullname">Full name: </label>
+            <input type="text" name="fullname"/><br/>
+
+            <label th:for="street">Street: </label>
+            <input type="text" name="street"/><br/>
+
+            <label th:for="city">City: </label>
+            <input type="text" name="city"/><br/>
+
+            <label th:for="zip">Zip: </label>
+            <input type="text" name="zip"/><br/>
+
+            <label th:for="phone">Phone number: </label>
+            <input type="text" name="phone"/><br/>
+
+            <input type="submit" value="Register"/>
+
+        </form>
+    </div>
+
 <div class="footer">
     <p>Created by Kierznowski</p>
 </div>
