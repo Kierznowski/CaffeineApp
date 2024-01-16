@@ -7,26 +7,33 @@
 :root {
     --brand-color: #eedccd;
     --content-width: 1080px;
+    --text-color: #3d1e00;
 }
 
 body {
-    margin: unset;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
     background-color: var(--brand-color);
     font-family: Helvetica, Arial, sans-serif;
+    color: var(--text-color);
     }
 
 .page-header {
     margin-inline: auto;
     padding: 1em 1.5rem;
-    color: #4f2701;
+    color: var(--text-color);
     background-color: var(--brand-color);
 }
 
 .main {
+    flex: 1;
     padding: 1em 1.5rem;
     background-color: var(--brand-color);
     max-inline-size: var(--content-width);
     margin-inline: auto;
+
 }
 
 .main input {
@@ -37,7 +44,9 @@ body {
     padding: 1em 1.5rem;
     background-color: var(--brand-color);
     border-radius: 0.5em;
-
+}
+.social-icon {
+    width: 2em;
 }
 
 .footer {
@@ -48,7 +57,7 @@ body {
 
 #main-logo {
     display: block;
-    max-width: 18%;
+    max-width: 30%;
     height: auto;
     margin-inline: auto;
 }
@@ -69,6 +78,11 @@ body {
 
 #form {
     text-align: left;
+}
+
+#main-contact {
+    text-align: center;
+    padding: 3em;
 }
 
 /* Ingredients view: */
