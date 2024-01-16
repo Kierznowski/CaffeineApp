@@ -1,6 +1,6 @@
 <h1>☕ Caffeine App ☕</h1>
 
-<p>Caffeine is a central nervous system (CNS) stimulant of the methylxanthine class... But if you've found the project on Github it's certain that you already familiar with caffeine 😉</p>
+<p>Caffeine is a central nervous system (CNS) stimulant of the methylxanthine class... But if you've found the project on Github it's certain that you are already familiar with caffeine 😉</p>
 
 <p>What is the Caffeine App? It's simply a portfolio application developed to show some skills for my future employers.
 It's a web application for ordering designed by your coffee, with delivery to your home. You can save your coffee with a custom composition and name, and order the exact same coffee in the future.</p>
