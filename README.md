@@ -5,8 +5,8 @@
 <p>What is the Caffeine App? It's simply a portfolio application developed to show some skills for my future employers.
 It's a web application for ordering designed by your coffee, with delivery to your home. You can save your coffee with a custom composition and name, and order the exact same coffee in the future.</p>
 
-<p>Now you might be thinking, "Who in their right mind would order (possibly cold) coffee with delivery to their home and wait for it for 30 minutes?
-But hey, do you need some coffee? Wake up! It's just a portfolio app.</p>
+<p>Now you might be thinking, "Who in their right mind would order (possibly cold) coffee with delivery to their home and wait for it for 30 minutes?"
+  But hey, do you need some coffee? Wake up! It's just a portfolio app.</p>
 <br>
 
 
