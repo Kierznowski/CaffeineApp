@@ -15,4 +15,6 @@ public interface CoffeeRepository extends
     Optional<Coffee> findByName(String name);
 
     Coffee save(Coffee coffee);
+
+    void deleteById(Long id);
 }

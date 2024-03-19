@@ -10,6 +10,16 @@
     --text-color: #3d1e00;
 }
 
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+a:hover {
+    text-decoration: none;
+    color: #a3611a;
+}
+
 body {
     min-height: 100vh;
     display: flex;
@@ -53,6 +63,7 @@ body {
     text-align: center;
     margin-top: auto;
     font-family: Monospace "Courier New";
+    margin-bottom: 5px;
 }
 
 #main-logo {
@@ -85,6 +96,11 @@ body {
     padding: 3em;
 }
 
+#third-party-authentication {
+    font-size: 32px;
+    font-weight: 700;
+}
+
 /* Ingredients view: */
 div.ingredient-group:nth-child(odd) {
 	float: left;
@@ -115,4 +131,8 @@ div.ingredient-group {
 
 span.validationError {
 	color: red;
+}
+
+#loginForm {
+    margin-bottom: 45px;
 }

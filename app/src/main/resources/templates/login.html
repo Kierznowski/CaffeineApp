@@ -23,8 +23,7 @@
         Unable to login. Check your username and password.
       </div>
 
-      <p>New here? Click
-        <a th:href="@{/register}">here</a> to register.</p>
+      <p><h3>New here? <a th:href="@{/register}"><b>Click to register.</b></a></h3></p>
 
       <form method="POST" th:action="@{/login}" id="loginForm">
         <input type="hidden"
@@ -41,11 +40,12 @@
 
       </form>
 
+      <h3>or Login via Github account:</h3>
+
       <div id="third-party-authentication">
-
-        <a href="/oauth2/authorization/github"><button>GitHub login</button></a>
-
+        <a href="/oauth2/authorization/github"><img id="github-logo" th:src="@{/images/github-dark.svg}"/> Github Login</a>
       </div>
+
     </div>
   </div>
   <div class="footer">
