@@ -11,10 +11,10 @@
 </head>
 
 <body>
-<div class="page-header">
-    <img id="main-logo" th:src="@{/images/Caffeine-logo-bg.png}" />
-</div>
-<div class="container">
+    <div class="page-header">
+        <img id="main-logo" th:src="@{/images/Caffeine-logo-bg.png}" />
+    </div>
+
     <div class="navbar">
         <form th:action="@{/}" method="GET"><button>Home</button></form>
         <form th:action="@{/design}" method="GET"><button>Order Coffee</button></form>
@@ -37,15 +37,16 @@
                 </form>
         </span>
     </div>
+    <div class="container">
     <main class="main">
         <h2>Order your custom coffee!</h2>
 
         <p></p>
 
     </main>
-</div>
-<div class="footer">
-    <p>Created by Kierznowski</p>
-</div>
+    </div>
+    <div class="footer">
+        <p>Created by Kierznowski</p>
+    </div>
 </body>
 </html>

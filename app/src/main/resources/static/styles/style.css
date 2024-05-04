@@ -136,3 +136,110 @@ span.validationError {
 #loginForm {
     margin-bottom: 45px;
 }
+
+/*Click to Register Button */
+    .button2 {
+      display: inline-block;
+      transition: all 0.2s ease-in;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      color: #090909;
+      padding: 0.7em 1.7em;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 0.5em;
+      background: #ffe9d4;
+      border: 1px solid #e8e8e8;
+      box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    }
+
+    .button2:active {
+      color: #666;
+      box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+    }
+
+    .button2:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) scaleY(1) scaleX(1.25);
+      top: 100%;
+      width: 140%;
+      height: 180%;
+      background-color: rgba(0, 0, 0, 0.05);
+      border-radius: 50%;
+      display: block;
+      transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+      z-index: -1;
+    }
+
+    .button2:after {
+      content: "";
+      position: absolute;
+      left: 55%;
+      transform: translateX(-50%) scaleY(1) scaleX(1.45);
+      top: 180%;
+      width: 160%;
+      height: 190%;
+      background-color: #009087;
+      border-radius: 50%;
+      display: block;
+      transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+      z-index: -1;
+    }
+
+    .button2:hover {
+      color: #ffffff;
+      border: 1px solid #009087;
+    }
+
+    .button2:hover:before {
+      top: -35%;
+      background-color: #ffe9d4;
+      transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+    }
+
+    .button2:hover:after {
+      top: -45%;
+      background-color: #0b6e0e;
+      transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+    }
+
+
+/*End of Click to Register Button */
+
+/* Github Login Button: */
+    .btn {
+      display: grid;
+      place-items: center;
+      background: #ffe9d4;
+      padding: 1.4em;
+      border-radius: 10px;
+      box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(255,255,255,0.7);
+      border: 1px solid rgba(0,0,0,0);
+      cursor: pointer;
+      transition: transform 0.5s;
+    }
+
+    .btn:hover {
+      box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+              inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+              -0.5px -0.5px 0px rgba(255,255,255,1),
+              0.5px 0.5px 0px rgba(0,0,0,0.15),
+              0px 12px 10px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.1);
+      transform: translateY(0.5em);
+    }
+
+    .btn svg {
+      transition: transform 0.5s;
+    }
+
+    .btn:hover svg {
+      transform: scale(0.9);
+      fill: #333333;
+    }
+/* End of Github Login Button */
+

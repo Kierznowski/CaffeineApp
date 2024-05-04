@@ -11,10 +11,10 @@
 </head>
 
 <body>
-<div class="page-header">
-  <img id="main-logo" th:src="@{/images/Caffeine-logo-bg.png}" />
-</div>
-<div class="container">
+    <div class="page-header">
+      <img id="main-logo" th:src="@{/images/Caffeine-logo-bg.png}" />
+    </div>
+
     <div class="navbar">
         <form th:action="@{/}" method="GET"><button>Home</button></form>
         <form th:action="@{/design}" method="GET"><button>Order Coffee</button></form>
@@ -37,18 +37,17 @@
                 </form>
         </span>
     </div>
-  <main class="main" id="main-contact">
-    <h2>Where do you find us?</h2>
-    <p>Probably nowhere because we don't exist. But if you want to get in touch with our creator you can find him on:</p>
-    <a href="https://github.com/kierznowski" target="_blank"><img th:src="@{/images/github-dark.svg}" class="social-icon"/></a>
-    <a href="https://linkedin.com/in/kierznowski" target="_blank"><img th:src="@{/images/linkedin.svg}" class="social-icon"/></a>
-    <a href="mailto:przemek.kierznowski@gmail.com" target="_blank"><img th:src="@{/images/gmail.svg}" class="social-icon"/></a>
-    <a href="https://instagram.com/kierznowski" target="_blank"><img th:src="@{/images/instagram.svg}" class="social-icon"/></a>
+    <main class="main" id="main-contact">
+        <h2>Where do you find us?</h2>
+        <p>Probably nowhere because we don't exist. But if you want to get in touch with our creator you can find him on:</p>
+        <a href="https://github.com/kierznowski" target="_blank"><img th:src="@{/images/github-dark.svg}" class="social-icon"/></a>
+        <a href="https://linkedin.com/in/kierznowski" target="_blank"><img th:src="@{/images/linkedin.svg}" class="social-icon"/></a>
+        <a href="mailto:przemek.kierznowski@gmail.com" target="_blank"><img th:src="@{/images/gmail.svg}" class="social-icon"/></a>
+        <a href="https://instagram.com/kierznowski" target="_blank"><img th:src="@{/images/instagram.svg}" class="social-icon"/></a>
+    </main>
 
-  </main>
-</div>
-<div class="footer">
-  <p>Created by Kierznowski</p>
-</div>
+    <div class="footer">
+        <p>Created by Kierznowski</p>
+    </div>
 </body>
 </html>
