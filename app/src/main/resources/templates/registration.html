@@ -3,7 +3,8 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Caffeine Register User</title>
+    <title>Register User</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon/favicon.ico}">
     <link th:href="@{/styles/style.css}" rel="stylesheet">
 </head>
 
@@ -38,31 +39,55 @@
                        th:name="${_csrf.parameterName}"
                        th:value="${_csrf.token}" />
 
-                <label th:for="username">Username: </label>
-                <input type="text" name="username"/><br/>
+                <div class="input-container">
+                    <input type="text" name="username" required="">
+                    <label th:for="username" class="label">Username</label>
+                    <div class="underline"></div>
+                </div>
 
-                <label th:for="password">Password: </label>
-                <input type="password" name="password"/><br/>
+                <div class="input-container">
+                    <input type="password" name="password" required="">
+                    <label th:for="password" class="label">Password</label>
+                    <div class="underline"></div>
+                </div>
 
-                <label th:for="confirm">Confirm password: </label>
-                <input type="password" name="confirm"/><br/>
+                <div class="input-container">
+                    <input type="password" name="confirm" required="">
+                    <label th:for="confirm" class="label">Confirm password</label>
+                    <div class="underline"></div>
+                </div>
 
-                <label th:for="fullname">Full name: </label>
-                <input type="text" name="fullname"/><br/>
+                <div class="input-container">
+                    <input type="text" name="fullname" required="">
+                    <label th:for="fullname" class="label">Full name</label>
+                    <div class="underline"></div>
+                </div>
 
-                <label th:for="street">Street: </label>
-                <input type="text" name="street"/><br/>
+                <div class="input-container">
+                    <input type="text" name="street" required="">
+                    <label th:for="street" class="label">Street</label>
+                    <div class="underline"></div>
+                </div>
 
-                <label th:for="city">City: </label>
-                <input type="text" name="city"/><br/>
+                <div class="input-container">
+                    <input type="text" name="city" required="">
+                    <label th:for="city" class="label">City</label>
+                    <div class="underline"></div>
+                </div>
 
-                <label th:for="zip">Zip: </label>
-                <input type="text" name="zip"/><br/>
+                <div class="input-container">
+                    <input type="text" name="zip" required="">
+                    <label th:for="zip" class="label">Zip</label>
+                    <div class="underline"></div>
+                </div>
 
-                <label th:for="phone">Phone number: </label>
-                <input type="text" name="phone"/><br/>
+                <div class="input-container">
+                    <input type="text" name="phone" required="">
+                    <label th:for="phone" class="label">Phone number</label>
+                    <div class="underline"></div>
+                </div>
 
-                <input type="submit" value="Register"/>
+                <button class="green-button" type="submit" value="Register">Register</button>
 
             </form>
         </div>

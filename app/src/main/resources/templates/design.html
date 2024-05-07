@@ -6,6 +6,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Design your coffee</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon/favicon.ico}">
     <link th:href="@{/styles/style.css}" rel="stylesheet" type="text/css">
   </head>
 
@@ -35,6 +36,8 @@
                 </form>
       </span>
     </div>
+
+
     <div class="container">
       <main class="main">
         <div id="form">
@@ -51,49 +54,65 @@
               <div class="ingredient-group" id="beans">
                 <h3>Choose your beans:</h3>
                 <div th:each="ingredient : ${bean}">
-                  <input th:field="*{ingredients}" type="checkbox"
-                         th:value="${ingredient.id}"/>
-                  <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                  <label class="checkbox">
+                    <input th:field="*{ingredients}" type="checkbox" th:value="${ingredient.id}"/>
+                    <div class="checkmark"></div>
+                  </label>
+                  <span class="ingredient-name" th:text="${ingredient.name}">INGREDIENT</span><br/>
                 </div>
+                </br>
               </div>
+
 
               <div class="ingredient-group" id="milks">
                 <h3>Choose your milk:</h3>
                 <div th:each="ingredient : ${milk}">
-                  <input th:field="*{ingredients}" type="checkbox"
-                         th:value="${ingredient.id}"/>
-                  <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                  <label class="checkbox">
+                    <input th:field="*{ingredients}" type="checkbox" th:value="${ingredient.id}"/>
+                    <div class="checkmark"></div>
+                  </label>
+                  <span class="ingredient-name" th:text="${ingredient.name}">INGREDIENT</span><br/>
                 </div>
               </div>
 
               <div class="ingredient-group" id="sweeteners">
                 <h3>Choose your sweetener:</h3>
                 <div th:each="ingredient : ${sweetener}">
-                  <input th:field="*{ingredients}" type="checkbox"
-                         th:value="${ingredient.id}"/>
-                  <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                  <label class="checkbox">
+                    <input th:field="*{ingredients}" type="checkbox" th:value="${ingredient.id}"/>
+                    <div class="checkmark"></div>
+                  </label>
+                  <span class="ingredient-name" th:text="${ingredient.name}">INGREDIENT</span><br/>
                 </div>
               </div>
 
               <div class="ingredient-group" id="extras">
                 <h3>Choose your extra:</h3>
                 <div th:each="ingredient : ${extra}">
-                  <input th:field="*{ingredients}" type="checkbox"
-                         th:value="${ingredient.id}"/>
-                  <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                  <label class="checkbox">
+                    <input th:field="*{ingredients}" type="checkbox" th:value="${ingredient.id}"/>
+                    <div class="checkmark"></div>
+                  </label>
+                  <span class="ingredient-name" th:text="${ingredient.name}">INGREDIENT</span><br/>
                 </div>
               </div>
             </div>
 
               <div>
                 <h3>Name your Coffee:</h3>
-                <input type="text" th:field="*{name}"/>
-                <span class="validationError"
-                      th:if="${#fields.hasErrors('name')}"
-                      th:errors="*{name}">Name Error</span>
-                <br/>
-                <button>Submit</button>
+
+                <div class="input-container">
+                  <input type="text" required="">
+                  <label th:field="*{name}" class="label">Name your coffee:</label>
+                  <div class="underline"></div>
+                  <span class="validationError"
+                        th:if="${#fields.hasErrors('name')}"
+                        th:errors="*{name}">Name Error</span>
+                </div>
+
+                <button class="green-button">Submit</button>
               </div>
+
           </form>
         </div>
       </main>

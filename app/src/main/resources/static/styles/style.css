@@ -7,17 +7,15 @@
 :root {
     --brand-color: #eedccd;
     --content-width: 1080px;
-    --text-color: #3d1e00;
-}
 
-a {
-    text-decoration: none;
-    color: var(--text-color);
-}
-
-a:hover {
-    text-decoration: none;
-    color: #a3611a;
+    /*TO-DO*/
+    --green-color: #264F0B;
+    --brown-color: #3d1e00;
+    --beige-color: #eedccd;
+    --gray-color: #808080;
+    --main-font:
+    --header-font:
+    --text-color: var(--brown-color);
 }
 
 body {
@@ -25,7 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    background-color: var(--brand-color);
+    background-color: var(--beige-color);
     font-family: Helvetica, Arial, sans-serif;
     color: var(--text-color);
     }
@@ -34,13 +32,17 @@ body {
     margin-inline: auto;
     padding: 1em 1.5rem;
     color: var(--text-color);
-    background-color: var(--brand-color);
+    background-color: var(--beige-color);
+}
+
+.container {
+
 }
 
 .main {
     flex: 1;
     padding: 1em 1.5rem;
-    background-color: var(--brand-color);
+    background-color: var(--beige-color);
     max-inline-size: var(--content-width);
     margin-inline: auto;
 
@@ -52,7 +54,7 @@ body {
 
 .social-links {
     padding: 1em 1.5rem;
-    background-color: var(--brand-color);
+    background-color: var(--beige-color);
     border-radius: 0.5em;
 }
 .social-icon {
@@ -137,29 +139,29 @@ span.validationError {
     margin-bottom: 45px;
 }
 
-/*Click to Register Button */
-    .button2 {
+/* Hover-green button */
+    .green-button {
       display: inline-block;
       transition: all 0.2s ease-in;
       position: relative;
       overflow: hidden;
       z-index: 1;
       color: #090909;
-      padding: 0.7em 1.7em;
+      padding: 0.5em 1.5em;
       cursor: pointer;
       font-size: 18px;
       border-radius: 0.5em;
-      background: #ffe9d4;
-      border: 1px solid #e8e8e8;
+      background: var(--beige-color);
+      border: 1px solid var(--beige-color);
       box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
     }
 
-    .button2:active {
+    .green-button:active {
       color: #666;
       box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
     }
 
-    .button2:before {
+    .green-button:before {
       content: "";
       position: absolute;
       left: 50%;
@@ -174,7 +176,7 @@ span.validationError {
       z-index: -1;
     }
 
-    .button2:after {
+    .green-button:after {
       content: "";
       position: absolute;
       left: 55%;
@@ -189,20 +191,20 @@ span.validationError {
       z-index: -1;
     }
 
-    .button2:hover {
+    .green-button:hover {
       color: #ffffff;
       border: 1px solid #009087;
     }
 
-    .button2:hover:before {
+    .green-button:hover:before {
       top: -35%;
       background-color: #ffe9d4;
       transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
     }
 
-    .button2:hover:after {
+    .green-button:hover:after {
       top: -45%;
-      background-color: #0b6e0e;
+      background-color: var(--green-color);
       transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
     }
 
@@ -213,7 +215,7 @@ span.validationError {
     .btn {
       display: grid;
       place-items: center;
-      background: #ffe9d4;
+      background: var(--beige-color);
       padding: 1.4em;
       border-radius: 10px;
       box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
@@ -243,3 +245,129 @@ span.validationError {
     }
 /* End of Github Login Button */
 
+/* checkbox */
+    .checkbox {
+      --input-focus: var(--green-color);
+      --input-out-of-focus: var(--beige-color);
+      --bg-color: var(--beige-color);
+      --bg-color-alt: var(--beige-color);
+      --main-color: #323232;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      margin: 0.2em;
+    }
+
+    .checkbox input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .checkmark {
+      width: 30px;
+      height: 30px;
+      position: relative;
+      top: 0;
+      left: 0;
+      border: 2px solid var(--main-color);
+      border-radius: 5px;
+      box-shadow: 4px 4px var(--main-color);
+      background-color: var(--input-out-of-focus);
+      transition: all 0.3s;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .checkbox input:checked ~ .checkmark {
+      background-color: var(--input-focus);
+    }
+
+    .checkmark:after {
+      content: "";
+      width: 7px;
+      height: 15px;
+      position: absolute;
+      top: 2px;
+      left: 8px;
+      display: none;
+      border: solid var(--bg-color);
+      border-width: 0 2.5px 2.5px 0;
+      transform: rotate(45deg);
+    }
+
+    .checkbox input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+/* End of check-box */
+
+.ingredient-name {
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+/* Input box */
+
+.input-container {
+display: flex; /* Use flexbox */
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  position: relative;
+  width: 200px;
+}
+
+.input-container input[type="text"] {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--gray-color);
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+}
+
+.input-container input[type="password"] {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--gray-color);
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+}
+
+.input-container .label {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  color: var(--gray-color);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label,
+ .input-container input[type="password"]:focus ~ .label,
+ .input-container input[type="password"]:valid ~ .label{
+  top: -10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.input-container .underline {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #333;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+/* End of Input Box */

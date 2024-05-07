@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http:/ /www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon/favicon.ico}">
     <link th:href="@{/styles/style.css}" rel="stylesheet">
 </head>
 <body>
@@ -13,7 +14,7 @@
     <form th:action="@{/}" method="GET"><button>Home</button></form>
     <form th:action="@{/design}" method="GET"><button>Order Coffee</button></form>
     <form th:action="@{/}" method="GET"><button>About us</button></form>
-    <form th:action="@{/}" method="GET"><button>Contact</button></form>
+    <form th:action="@{/contact}" method="GET"><button>Contact</button></form>
   </div>
   <div class="container">
     <div class="main" >
@@ -28,22 +29,26 @@
                th:name="${_csrf.parameterName}"
                th:value="${_csrf.token}" />
 
-        <label for="username">Username: </label>
-        <input type="text" name="username" id="username" /><br/>
+        <div class="input-container">
+          <input type="text" name="username" required="">
+          <label th:for="username" class="label">Username</label>
+          <div class="underline"></div>
+        </div>
 
-        <label for="password">Password: </label>
-        <input type="password" name="password" id="password" /><br/>
+        <div class="input-container">
+          <input type="text" name="password" required="">
+          <label th:for="password" class="label">Password</label>
+          <div class="underline"></div>
+        </div>
 
-        <input type="submit" value="Login"/>
+        <button class="green-button" type="submit" value="Login">Login</button>
 
       </form>
 
       <p><h3>New here?</h3></p>
-      <a th:href="@{/register}"><button class="button2">Click to register</button></a>
+      <a th:href="@{/register}"><button class="green-button">Click to register</button></a>
 
       <h3>or Login via Github account:</h3>
-
-
       <a href="/oauth2/authorization/github">
       <button class="btn">
         <svg width="40" height="40" fill="#0b6e0e" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24" id="github">
