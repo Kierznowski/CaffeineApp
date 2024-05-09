@@ -141,6 +141,7 @@ span.validationError {
 
 /* Hover-green button */
     .green-button {
+      text-decoration: none;
       display: inline-block;
       transition: all 0.2s ease-in;
       position: relative;
@@ -209,7 +210,7 @@ span.validationError {
     }
 
 
-/*End of Click to Register Button */
+/*End of green-button */
 
 /* Github Login Button: */
     .btn {
@@ -309,7 +310,7 @@ span.validationError {
 /* Input box */
 
 .input-container {
-display: flex; /* Use flexbox */
+  display: flex; /* Use flexbox */
   justify-content: flex-start;
   margin-bottom: 20px;
   position: relative;

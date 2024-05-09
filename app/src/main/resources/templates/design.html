@@ -102,9 +102,10 @@
                 <h3>Name your Coffee:</h3>
 
                 <div class="input-container">
-                  <input type="text" required="">
-                  <label th:field="*{name}" class="label">Name your coffee:</label>
+                  <input type="text" name="name" required="">
+                  <label th:for="*{name}" class="label">Name your coffee:</label>
                   <div class="underline"></div>
+
                   <span class="validationError"
                         th:if="${#fields.hasErrors('name')}"
                         th:errors="*{name}">Name Error</span>
