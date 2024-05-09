@@ -83,8 +83,6 @@ public class AppApplication {
 				coffee3.setName("Cream dream");
 				coffee3.setIngredients(Arrays.asList(arabic, cream, whippedCream, sugar, cocoa));
 				coffeeRepository.save(coffee3);
-
-
 			}
 		};
 

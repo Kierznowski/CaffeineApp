@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Account</title><link rel="icon" type="image/x-icon" th:href="@{/images/favicon/favicon.ico}">
+  <link th:href="@{/styles/style.css}" rel="stylesheet">
+</head>
+
+<body>
+<div class="page-header">
+  <img id="main-logo" th:src="@{/images/Caffeine-logo-bg.png}" />
+</div>
+
+<div class="navbar">
+    <form th:action="@{/}" method="GET"><button>Home</button></form>
+    <form th:action="@{/design}" method="GET"><button>Order Coffee</button></form>
+    <form th:action="@{/}" method="GET"><button>About us</button></form>
+    <form th:action="@{/contact}" method="GET"><button>Contact</button></form>
+    <span sec:authorize="hasRole('ROLE_USER')">
+                <form  method="POST" th:action="@{/logout}" id="logout">
+                    <input type="submit" value="Logout">
+                </form>
+    </span>
+    <span sec:authorize="!hasRole('ROLE_USER')">
+                <form  method="POST" th:action="@{/login}" id="login">
+                    <input type="submit" value="Log in">
+                </form>
+    </span>
+</div>
+  <main class="main">
+    <h2>This will be account page</h2>
+
+
+  </main>
+
+<div class="footer">
+  <p>Created by Kierznowski</p>
+</div>
+</body>
+</html>
