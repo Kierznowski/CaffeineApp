@@ -50,7 +50,10 @@
                   th:if="${#fields.hasErrors('ingredients')}"
                   th:errors="*{ingredients}">Ingredient Error</span>
 
+
+
             <div class="grid">
+
               <div class="ingredient-group" id="beans">
                 <h3>Choose your beans:</h3>
                 <div th:each="ingredient : ${bean}">
@@ -59,6 +62,8 @@
                     <div class="checkmark"></div>
                   </label>
                   <span class="ingredient-name" th:text="${ingredient.name}">INGREDIENT</span><br/>
+
+
                 </div>
                 </br>
               </div>
@@ -89,6 +94,16 @@
               <div class="ingredient-group" id="extras">
                 <h3>Choose your extra:</h3>
                 <div th:each="ingredient : ${extra}">
+                  <label class="checkbox">
+                    <input th:field="*{ingredients}" type="checkbox" th:value="${ingredient.id}"/>
+                    <div class="checkmark"></div>
+                  </label>
+                  <span class="ingredient-name" th:text="${ingredient.name}">INGREDIENT</span><br/>
+                </div>
+              </div>
+              <div class="ingredient-group" id="volume">
+                <h3>Choose coffee volume:</h3>
+                <div th:each="ingredient : ${volume}">
                   <label class="checkbox">
                     <input th:field="*{ingredients}" type="checkbox" th:value="${ingredient.id}"/>
                     <div class="checkmark"></div>
