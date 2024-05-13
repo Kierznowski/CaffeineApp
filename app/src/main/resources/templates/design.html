@@ -19,11 +19,7 @@
       <form th:action="@{/design}" method="GET"><button>Order Coffee</button></form>
       <form th:action="@{/}" method="GET"><button>About us</button></form>
       <form th:action="@{/contact}" method="GET"><button>Contact</button></form>
-      <span sec:authorize="hasRole('ROLE_USER')">
-                <form  method="POST" th:action="@{/account}" id="account">
-                    <input type="submit" value="My Account">
-                </form>
-        </span>
+
       <span sec:authorize="hasRole('ROLE_USER')">
                 <form  method="POST" th:action="@{/logout}" id="logout">
                     <input type="submit" value="Logout">
@@ -53,6 +49,17 @@
 
 
             <div class="grid">
+
+              <div class="ingredient-group" id="volume">
+                <h3>Choose coffee volume:</h3>
+                <div th:each="ingredient : ${volume}">
+                  <label class="checkbox">
+                    <input th:field="*{ingredients}" type="checkbox" th:value="${ingredient.id}"/>
+                    <div class="checkmark"></div>
+                  </label>
+                  <span class="ingredient-name" th:text="${ingredient.name}">INGREDIENT</span><br/>
+                </div>
+              </div>
 
               <div class="ingredient-group" id="beans">
                 <h3>Choose your beans:</h3>
@@ -101,16 +108,7 @@
                   <span class="ingredient-name" th:text="${ingredient.name}">INGREDIENT</span><br/>
                 </div>
               </div>
-              <div class="ingredient-group" id="volume">
-                <h3>Choose coffee volume:</h3>
-                <div th:each="ingredient : ${volume}">
-                  <label class="checkbox">
-                    <input th:field="*{ingredients}" type="checkbox" th:value="${ingredient.id}"/>
-                    <div class="checkmark"></div>
-                  </label>
-                  <span class="ingredient-name" th:text="${ingredient.name}">INGREDIENT</span><br/>
-                </div>
-              </div>
+
             </div>
 
               <div>

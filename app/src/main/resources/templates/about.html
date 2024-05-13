@@ -22,11 +22,6 @@
         <form th:action="@{/}" method="GET"><button>About us</button></form>
         <form th:action="@{/contact}" method="GET"><button>Contact</button></form>
         <span sec:authorize="hasRole('ROLE_USER')">
-                <form  method="POST" th:action="@{/account}" id="account">
-                    <input type="submit" value="My Account">
-                </form>
-        </span>
-        <span sec:authorize="hasRole('ROLE_USER')">
                 <form  method="POST" th:action="@{/logout}" id="logout">
                     <input type="submit" value="Logout">
                 </form>

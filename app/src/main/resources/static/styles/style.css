@@ -61,6 +61,14 @@ body {
     width: 2em;
 }
 
+#frappe-img {
+    width: 20em;
+}
+
+#anime-smile-img {
+    width: 2.5em;
+}
+
 .footer {
     text-align: center;
     margin-top: auto;
@@ -88,9 +96,39 @@ body {
     display: inline-block;
 }
 
+.navbar button,
+.navbar-login {
+     background-color: var(--beige-color);
+     border: solid, 2px;
+     border-color: var(--brown-color);
+     color: black;
+     padding: 10px 25px;
+     text-align: center;
+     display: inline;
+     font-size: 16px;
+     border-radius: 5px;
+}
+
+.navbar button:hover,
+.navbar-login:hover {
+     background-color: var(--green-color);
+     color: var(--beige-color);
+}
+
 
 #form {
     text-align: left;
+    decoration: none;
+}
+
+.order-form {
+    float:left;
+    margin-inline: 100px;
+}
+
+.coffees-in-order {
+    float: left;
+    margin-inline: 100px;
 }
 
 #main-contact {
@@ -149,6 +187,7 @@ span.validationError {
       z-index: 1;
       color: #090909;
       padding: 0.5em 1.5em;
+      margin: 10px;
       cursor: pointer;
       font-size: 18px;
       border-radius: 0.5em;
@@ -370,5 +409,57 @@ span.validationError {
 .input-container input[type="text"]:valid ~ .underline {
   transform: scaleX(1);
 }
-
 /* End of Input Box */
+
+/*Info hover icon*/
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-family: "Arial", sans-serif;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: -100%;
+  left: 650%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #333 transparent;
+}
+
+.tooltip .icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--green-color);
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+}
+/*End of Info hover icon*/
