@@ -26,13 +26,4 @@ Application in progress. Status for now:
 
 <br>
 <i>In folder <b>Other_Versions_For_Excercise</b> I'm adding (as the name suggests) other versions write for excercise purpose (e.g. connection with MongoDB instead of SQL db).
-<br>
-<img src="./Images/screenshot-design.jpg"/>
-<br>
-<img src="./Images/screenshot-home.jpg"/>
-<br>
-<img src="./Images/screenshot-login.jpg"/>
-<br>
-<img src="./Images/screenshot-order.jpg"/>
-
 
