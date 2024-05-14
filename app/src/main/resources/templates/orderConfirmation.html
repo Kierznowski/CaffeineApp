@@ -21,17 +21,16 @@
       <form th:action="@{/}" method="GET"><button>About us</button></form>
       <form th:action="@{/contact}" method="GET"><button>Contact</button></form>
 
-      <span sec:authorize="hasRole('ROLE_USER')">
-                <form  method="POST" th:action="@{/logout}" id="logout">
-                    <input type="submit" value="Logout">
-                </form>
-            </span>
-
-      <span sec:authorize="!hasRole('ROLE_USER')">
-                <form  method="POST" th:action="@{/login}" id="login">
-                    <input type="submit" value="Log in">
-                </form>
-            </span>
+          <span sec:authorize="hasRole('ROLE_USER')">
+                    <form  method="POST" th:action="@{/logout}" id="logout">
+                        <button type="submit"><label>Log out</label></button>
+                    </form>
+          </span>
+        <span sec:authorize="!hasRole('ROLE_USER')">
+            <form  method="POST" th:action="@{/login}" id="login">
+                <button type="submit"><label>Log in</label></button>
+            </form>
+        </span>
     </div>
     <div class="container">
         <main class="main">

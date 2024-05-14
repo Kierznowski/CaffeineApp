@@ -21,15 +21,15 @@
         <form th:action="@{/contact}" method="GET"><button>Contact</button></form>
 
         <span sec:authorize="hasRole('ROLE_USER')">
-            <form  method="POST" th:action="@{/logout}" id="logout">
-                <input type="submit" value="Logout">
-            </form>
-        </span>
+                <form  method="POST" th:action="@{/logout}" id="logout">
+                    <button type="submit"><label>Log out</label></button>
+                </form>
+            </span>
 
         <span sec:authorize="!hasRole('ROLE_USER')">
-            <form  method="POST" th:action="@{/login}" id="login">
-                <input type="submit" value="Log in">
-            </form>
+                <form  method="POST" th:action="@{/login}" id="login">
+                    <button type="submit"><label>Log in</label></button>
+                </form>
         </span>
     </div>
 
@@ -117,11 +117,11 @@
             </div>
             <div class="coffees-in-order">
                 <h2>Coffees in the order:</h2>
-                <ul>
-                    <li th:each="coffee : ${coffeeOrder.coffees}">
+                <div class="list">
+                    <div class="list-entry" th:each="coffee : ${coffeeOrder.coffees}">
                         <span th:text="${coffee.name}">coffee name</span>
-                    </li>
-                </ul>
+                    </div>
+                </div>
                 <a th:href="@{/design}" class="green-button" id="another">Design another coffee</a>
             </div>
 

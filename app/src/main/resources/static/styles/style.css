@@ -8,14 +8,15 @@
     --brand-color: #eedccd;
     --content-width: 1080px;
 
-    /*TO-DO*/
     --green-color: #264F0B;
     --brown-color: #3d1e00;
     --beige-color: #eedccd;
     --gray-color: #808080;
+    --text-color: var(--brown-color);
+    TODO
     --main-font:
     --header-font:
-    --text-color: var(--brown-color);
+
 }
 
 body {
@@ -35,17 +36,12 @@ body {
     background-color: var(--beige-color);
 }
 
-.container {
-
-}
-
 .main {
     flex: 1;
     padding: 1em 1.5rem;
     background-color: var(--beige-color);
     max-inline-size: var(--content-width);
     margin-inline: auto;
-
 }
 
 .main input {
@@ -78,12 +74,10 @@ body {
 
 #main-logo {
     display: block;
-    max-width: 30%;
+    max-width: 35%;
     height: auto;
     margin-inline: auto;
 }
-
-
 
 .navbar {
     text-align: center;
@@ -96,23 +90,27 @@ body {
     display: inline-block;
 }
 
-.navbar button,
-.navbar-login {
-     background-color: var(--beige-color);
-     border: solid, 2px;
-     border-color: var(--brown-color);
-     color: black;
-     padding: 10px 25px;
-     text-align: center;
-     display: inline;
-     font-size: 16px;
-     border-radius: 5px;
+.navbar button {
+     color: #090909;
+     padding: 0.7em 1.7em;
+     font-size: 18px;
+     border-radius: 0.5em;
+     background: var(--beige-color);
+     cursor: pointer;
+     transition: all 0.5s;
+     box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                   -6px -6px 10px -1px rgba(255,255,255,0.7);
+     border: 1px solid var(--beige-color);
 }
 
-.navbar button:hover,
-.navbar-login:hover {
-     background-color: var(--green-color);
-     color: var(--beige-color);
+.navbar button:hover {
+     box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+                   inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+                   -0.5px -0.5px 0px rgba(255,255,255,1),
+                   0.5px 0.5px 0px rgba(0,0,0,0.15),
+                   0px 12px 10px -10px rgba(0,0,0,0.05);
+     border: 1px solid var(--beige-color);
+     transform: translateY(0.1em);
 }
 
 
@@ -139,6 +137,18 @@ body {
 #third-party-authentication {
     font-size: 32px;
     font-weight: 700;
+}
+
+.list {
+    margin-bottom: 10px;
+}
+
+.list-entry {
+    border-left: solid 3px;
+    padding: 3px;
+    font-size: 20px;
+    margin-bottom: 10px;
+
 }
 
 /* Ingredients view: */

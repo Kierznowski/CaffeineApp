@@ -22,13 +22,13 @@
 
       <span sec:authorize="hasRole('ROLE_USER')">
                 <form  method="POST" th:action="@{/logout}" id="logout">
-                    <input type="submit" value="Logout">
+                    <button type="submit"><label>Log out</label></button>
                 </form>
             </span>
 
       <span sec:authorize="!hasRole('ROLE_USER')">
                 <form  method="POST" th:action="@{/login}" id="login">
-                    <input type="submit" value="Log in">
+                    <button type="submit"><label>Log in</label></button>
                 </form>
       </span>
     </div>
