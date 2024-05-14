@@ -16,6 +16,6 @@ public class Ingredient {
     private Type type;
 
     public enum Type {
-        BEAN, MILK, SWEETENER, EXTRA
+        BEAN, MILK, SWEETENER, EXTRA, VOLUME
     }
 }

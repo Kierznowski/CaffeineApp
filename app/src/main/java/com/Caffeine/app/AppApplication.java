@@ -3,6 +3,7 @@ package com.Caffeine.app;
 import com.Caffeine.app.model.Coffee;
 import com.Caffeine.app.model.Ingredient;
 import com.Caffeine.app.model.Ingredient.Type;
+import com.Caffeine.app.model.User;
 import com.Caffeine.app.repositories.CoffeeRepository;
 import com.Caffeine.app.repositories.IngredientRepository;
 import com.Caffeine.app.repositories.UserRepository;
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
@@ -70,6 +72,10 @@ public class AppApplication {
 				repo.save(cinnamon);
 				Ingredient pumpkin = new Ingredient("PUMP", "Pumpkin", Type.EXTRA);
 				repo.save(pumpkin);
+				Ingredient smallCoffee = new Ingredient("SMALL", "Small (200 ml)", Type.VOLUME);
+				repo.save(smallCoffee);
+				Ingredient largeCoffee = new Ingredient("LARGE", "Large (350 ml)", Type.VOLUME);
+				repo.save(largeCoffee);
 
 				Coffee coffee1 = new Coffee();
 				coffee1.setName("Dark robust");
@@ -83,6 +89,12 @@ public class AppApplication {
 				coffee3.setName("Cream dream");
 				coffee3.setIngredients(Arrays.asList(arabic, cream, whippedCream, sugar, cocoa));
 				coffeeRepository.save(coffee3);
+
+				//Test User - just for testing purpose
+				BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
+				User testUser = new User("test", bc.encode("test"), "TestUser", "testStreet",
+						"testCity", "00-000", "000000000");
+				userRepository.save(testUser);
 			}
 		};
 

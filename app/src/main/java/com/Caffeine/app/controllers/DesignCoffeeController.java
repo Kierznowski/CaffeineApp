@@ -8,10 +8,9 @@ import com.Caffeine.app.repositories.IngredientRepository;
 
 
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -25,7 +24,6 @@ public class DesignCoffeeController {
 
     private final IngredientRepository ingredientRepository;
 
-    @Autowired
     public DesignCoffeeController(IngredientRepository ingredientRepository) {
         this.ingredientRepository = ingredientRepository;
     }
@@ -58,10 +56,31 @@ public class DesignCoffeeController {
     }
 
     @PostMapping
-    public String createCoffee(@Valid Coffee coffee, Errors errors,
+    public String createCoffee(@Valid Coffee coffee, BindingResult bindingResult,
                                @ModelAttribute CoffeeOrder coffeeOrder) {
 
-        if (errors.hasErrors()) {
+        long beanSelected = coffee.getIngredients().stream()
+                                                        .filter(ingredient -> ingredient.getType().equals(Type.BEAN))
+                                                        .count();
+
+        if(beanSelected != 1) {
+            bindingResult.rejectValue("ingredients", "error.ingredients",
+                            "Please select one type of Coffee Beans");
+        }
+
+        long volumeSelected = coffee.getIngredients().stream()
+                .filter(ingredient -> ingredient.getType().equals(Type.VOLUME))
+                .count();
+
+        if(volumeSelected == 0) {
+            bindingResult.rejectValue("ingredients", "error.ingredients",
+                    "Please select coffee volume");
+        } else if(volumeSelected > 1) {
+            bindingResult.rejectValue("ingredients", "error.ingredients",
+                    "Please select only one coffee volume");
+        }
+
+        if (bindingResult.hasErrors()) {
             return "design";
         }
 
