@@ -4,6 +4,7 @@ import com.Caffeine.app.model.Coffee;
 import com.Caffeine.app.model.CoffeeOrder;
 import com.Caffeine.app.model.Ingredient;
 import com.Caffeine.app.model.Ingredient.Type;
+import com.Caffeine.app.repositories.CoffeeRepository;
 import com.Caffeine.app.repositories.IngredientRepository;
 
 
@@ -14,8 +15,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Controller
 @RequestMapping("/design")
@@ -23,9 +28,11 @@ import java.util.stream.Collectors;
 public class DesignCoffeeController {
 
     private final IngredientRepository ingredientRepository;
+    private final CoffeeRepository coffeeRepository;
 
-    public DesignCoffeeController(IngredientRepository ingredientRepository) {
+    public DesignCoffeeController(IngredientRepository ingredientRepository, CoffeeRepository coffeeRepository) {
         this.ingredientRepository = ingredientRepository;
+        this.coffeeRepository = coffeeRepository;
     }
 
     @ModelAttribute
@@ -88,6 +95,19 @@ public class DesignCoffeeController {
 
         return "redirect:/orders/current";
     }
+
+    @GetMapping("/delete/{name}")
+    public String deleteCoffeeFromOrder(@PathVariable("name") String name, @ModelAttribute CoffeeOrder order) {
+
+        order.getCoffees().removeIf(coffee -> coffee.getName().equals(name));
+
+        if(order.getCoffees().size() == 0) {
+            return "redirect:/design";
+        }
+
+        return "redirect:/orders/current";
+    }
+
 
     private Iterable<Ingredient> filterByType (List<Ingredient> ingredients, Type type) {
         return ingredients

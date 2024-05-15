@@ -120,6 +120,7 @@
                 <div class="list">
                     <div class="list-entry" th:each="coffee : ${coffeeOrder.coffees}">
                         <span th:text="${coffee.name}">coffee name</span>
+                        <a th:href="@{'/design/delete/' + ${coffee.name}}">delete</a>
                     </div>
                 </div>
                 <a th:href="@{/design}" class="green-button" id="another">Design another coffee</a>

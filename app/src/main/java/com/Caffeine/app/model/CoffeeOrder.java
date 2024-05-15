@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 @Data
 @Entity
 @Table(name="Coffee_Orders")
@@ -53,6 +54,10 @@ public class CoffeeOrder implements Serializable {
 
     public void addCoffee(Coffee coffee) {
         this.coffees.add(coffee);
+    }
+
+    public void deleteCoffee(Coffee coffee) {
+        this.coffees.remove(coffee);
     }
 
 

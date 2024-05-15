@@ -12,7 +12,7 @@ public interface CoffeeRepository extends
     PagingAndSortingRepository <Coffee, Long> {
     
     Optional<Coffee> findById(Long id);
-    Optional<Coffee> findByName(String name);
+    Coffee findByName(String name);
 
     Coffee save(Coffee coffee);
 
