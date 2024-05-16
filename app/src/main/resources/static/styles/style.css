@@ -144,11 +144,17 @@ body {
 }
 
 .list-entry {
-    border-left: solid 3px;
-    padding: 3px;
+    border-left: solid 4px;
+    padding: 2px;
     font-size: 20px;
     margin-bottom: 10px;
 
+}
+
+.list-entry a {
+    font-weight: bold;
+    color: black;
+    font-size: 0.7em;
 }
 
 /* Ingredients view: */

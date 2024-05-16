@@ -1,16 +1,26 @@
 spring:
+
   security:
     oauth2:
       client:
         registration:
           github:
-            clientId: 36bbceb4c36793d6c2b4
-            clientSecret: d67aa651b62a59090f2b44a1eb17c9f2537b015b
+            clientId: #*************************
+            clientSecret: #**************************
             scope: email, public_profile
   data:
     rest:
       base-path: /data-api
 
-  datasource:
-    generate-unique-name: false
-    name: coffeeDB
+
+  # datasource:
+  #  url: jdbc:postgresql://{localhost:port}/caffeinedb
+  #  username: postgres
+  #  password: {postgres password}
+  #  initialization-mode: always
+  #  data: classpath:schema.sql
+  # jpa:
+  #  hibernate:
+  #  ddl-auto: update
+
+

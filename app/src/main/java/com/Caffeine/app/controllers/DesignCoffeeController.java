@@ -6,8 +6,6 @@ import com.Caffeine.app.model.Ingredient;
 import com.Caffeine.app.model.Ingredient.Type;
 import com.Caffeine.app.repositories.CoffeeRepository;
 import com.Caffeine.app.repositories.IngredientRepository;
-
-
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,12 +13,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+import java.util.regex.Matcher;
 
 @Controller
 @RequestMapping("/design")
@@ -69,6 +64,7 @@ public class DesignCoffeeController {
         long beanSelected = coffee.getIngredients().stream()
                                                         .filter(ingredient -> ingredient.getType().equals(Type.BEAN))
                                                         .count();
+        String name = coffee.getName();
 
         if(beanSelected != 1) {
             bindingResult.rejectValue("ingredients", "error.ingredients",
@@ -85,6 +81,11 @@ public class DesignCoffeeController {
         } else if(volumeSelected > 1) {
             bindingResult.rejectValue("ingredients", "error.ingredients",
                     "Please select only one coffee volume");
+        }
+        if(!name.matches("^[a-zA-Z0-9-_ ]*$")) {
+            bindingResult.rejectValue("ingredients", "error.name",
+                    "The name can only contain alphanumeric characters " +
+                            "as well as spaces( ), underscores(_) and dashes(-)");
         }
 
         if (bindingResult.hasErrors()) {

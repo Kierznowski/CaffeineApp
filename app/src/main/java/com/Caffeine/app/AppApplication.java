@@ -28,7 +28,6 @@ public class AppApplication {
 		SpringApplication.run(AppApplication.class, args);
 	}
 
-
 	//initializing fake data to database for testing
 	@Bean
 	public CommandLineRunner dataLoader(IngredientRepository repo,

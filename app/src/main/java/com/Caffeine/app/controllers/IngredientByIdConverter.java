@@ -2,7 +2,6 @@ package com.Caffeine.app.controllers;
 
 import com.Caffeine.app.model.Ingredient;
 import com.Caffeine.app.repositories.IngredientRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 

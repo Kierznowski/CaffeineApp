@@ -1,28 +1,23 @@
 package com.Caffeine.app.controllers;
 
-import com.Caffeine.app.model.Coffee;
 import com.Caffeine.app.model.CoffeeOrder;
 import com.Caffeine.app.model.User;
-import com.Caffeine.app.repositories.CoffeeRepository;
 import com.Caffeine.app.repositories.OrderRepository;
-
 import jakarta.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-
-import java.util.List;
-import java.util.logging.Logger;
 
 
 @Controller
 @RequestMapping("/orders")
 @SessionAttributes("coffeeOrder")
 public class OrderController {
-
-    Logger log = Logger.getLogger("order");
 
     private OrderRepository orderRepository;
 
@@ -46,7 +41,6 @@ public class OrderController {
         }
 
         order.setUser(user);
-
         orderRepository.save(order);
         sessionStatus.setComplete();
 
