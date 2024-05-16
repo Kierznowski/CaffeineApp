@@ -11,18 +11,7 @@ It's a web application for ordering designed by your coffee, with delivery to yo
   But hey, do you need some coffee? Wake up! It's just a portfolio app.</p>
 <br>
 
-
-
-Application in progress. Status for now: 
-- ordering coffee form, 
-- appending order for another coffees, 
-- delivery data form,
-- connection with database via SpringBootJPA,
-- Login and registration
-- Login via Github (OAuth2)
-- Rest API (in progress)
-- front-end (in progress)
-
+<p>App is still in progress. I'm constantly adding new features.</p>
 
 <br>
 <i>In folder <b>Other_Versions_For_Excercise</b> I'm adding (as the name suggests) other versions write for excercise purpose (e.g. connection with MongoDB instead of SQL db).
