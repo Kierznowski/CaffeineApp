@@ -4,9 +4,8 @@ import com.Caffeine.app.model.Coffee;
 import com.Caffeine.app.model.CoffeeOrder;
 import com.Caffeine.app.model.Ingredient;
 import com.Caffeine.app.model.Ingredient.Type;
+import com.Caffeine.app.repositories.CoffeeRepository;
 import com.Caffeine.app.repositories.IngredientRepository;
-
-
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,9 +22,11 @@ import java.util.stream.Collectors;
 public class DesignCoffeeController {
 
     private final IngredientRepository ingredientRepository;
+    private final CoffeeRepository coffeeRepository;
 
-    public DesignCoffeeController(IngredientRepository ingredientRepository) {
+    public DesignCoffeeController(IngredientRepository ingredientRepository, CoffeeRepository coffeeRepository) {
         this.ingredientRepository = ingredientRepository;
+        this.coffeeRepository = coffeeRepository;
     }
 
     @ModelAttribute
@@ -62,10 +63,11 @@ public class DesignCoffeeController {
         long beanSelected = coffee.getIngredients().stream()
                                                         .filter(ingredient -> ingredient.getType().equals(Type.BEAN))
                                                         .count();
+        String name = coffee.getName();
 
-        if(beanSelected != 1) {
+        if(beanSelected == 0) {
             bindingResult.rejectValue("ingredients", "error.ingredients",
-                            "Please select one type of Coffee Beans");
+                            "Please select coffee beans");
         }
 
         long volumeSelected = coffee.getIngredients().stream()
@@ -75,9 +77,19 @@ public class DesignCoffeeController {
         if(volumeSelected == 0) {
             bindingResult.rejectValue("ingredients", "error.ingredients",
                     "Please select coffee volume");
-        } else if(volumeSelected > 1) {
-            bindingResult.rejectValue("ingredients", "error.ingredients",
-                    "Please select only one coffee volume");
+        }
+
+        if(!name.matches("^[a-zA-Z0-9-_ ]*$")) {
+            bindingResult.rejectValue("ingredients", "error.name",
+                    "The name can only contain alphanumeric characters " +
+                            "as well as spaces( ), underscores(_) and dashes(-)");
+        }
+
+        for(Coffee cof : coffeeOrder.getCoffees()) {
+            if(cof.getName().equals(coffee.getName())) {
+                bindingResult.rejectValue("ingredients", "error.name",
+                        "There is already coffee with name '" +  name + "' in the order");
+            }
         }
 
         if (bindingResult.hasErrors()) {
@@ -88,6 +100,19 @@ public class DesignCoffeeController {
 
         return "redirect:/orders/current";
     }
+
+    @GetMapping("/delete/{name}")
+    public String deleteCoffeeFromOrder(@PathVariable("name") String name, @ModelAttribute CoffeeOrder order) {
+
+        order.getCoffees().removeIf(coffee -> coffee.getName().equals(name));
+
+        if(order.getCoffees().size() == 0) {
+            return "redirect:/design";
+        }
+
+        return "redirect:/orders/current";
+    }
+
 
     private Iterable<Ingredient> filterByType (List<Ingredient> ingredients, Type type) {
         return ingredients

@@ -3,7 +3,6 @@ package com.Caffeine.app.controllers;
 import com.Caffeine.app.model.CoffeeOrder;
 import com.Caffeine.app.model.User;
 import com.Caffeine.app.repositories.OrderRepository;
-
 import jakarta.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -42,11 +41,9 @@ public class OrderController {
         }
 
         order.setUser(user);
-
         orderRepository.save(order);
         sessionStatus.setComplete();
 
         return "orderConfirmation";
     }
-
 }

@@ -57,9 +57,16 @@ body {
     width: 2em;
 }
 
-#frappe-img {
+.order-confirmation-message {
+    display: block;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.order-confirmation-message img {
     width: 20em;
 }
+
 
 #anime-smile-img {
     width: 2.5em;
@@ -144,27 +151,42 @@ body {
 }
 
 .list-entry {
-    border-left: solid 3px;
-    padding: 3px;
+    border-left: solid 4px;
+    padding: 5px;
     font-size: 20px;
     margin-bottom: 10px;
 
 }
 
-/* Ingredients view: */
-div.ingredient-group:nth-child(odd) {
-	float: left;
-	padding-right: 20px;
+.list-entry a {
+    font-weight: bold;
+    color: black;
+    font-size: 0.7em;
 }
 
-div.ingredient-group:nth-child(even) {
+#price-counter {
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 20 px;
+}
+
+/* Ingredients view: */
+div.ingredient-group:nth-child(2n+1) {
+	float: left;
+	padding-right: 20px;
+	padding-bottom: 10px;
+}
+
+div.ingredient-group:nth-child(2n) {
     float: left;
 	padding-right: 0;
+	padding-bottom: 10px;
 }
 
 
 div.ingredient-group {
 	width: 50%;
+	box-sizing: border-box;
 }
 
 .grid:after {
@@ -362,6 +384,7 @@ span.validationError {
   display: flex; /* Use flexbox */
   justify-content: flex-start;
   margin-bottom: 20px;
+  margin-top: 10 px;
   position: relative;
   width: 200px;
 }

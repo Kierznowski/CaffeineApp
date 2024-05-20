@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Coffee_Order (
+create table if not exists Coffee_Order (
     id identity,
     delivery_Name varchar(50) not null,
     delivery_Street varchar(50) not null,
@@ -19,7 +19,7 @@ create table if not exists Coffee (
  );
 
 create table if not exists Ingredient_Ref (
-    ingredient varchar(4) not null,
+    ingredient varchar(6) not null,
     coffee bigint not null,
     coffee_key bigint not null
  );
@@ -27,7 +27,8 @@ create table if not exists Ingredient_Ref (
 create table if not exists Ingredient (
     id varchar(6) not null,
     name varchar(25) not null,
-    type varchar(10) not null
+    type varchar(10) not null,
+    price double not null
  );
 
  create table if not exists User_data (
@@ -42,6 +43,7 @@ create table if not exists Ingredient (
   );
 
 alter table Coffee
-    add foreign key (Coffee_order) references Coffee_Order(id);
+add foreign key (Coffee_order) references Coffee_Order(id);
+
 
 

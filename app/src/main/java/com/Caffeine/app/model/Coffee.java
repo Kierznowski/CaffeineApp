@@ -2,10 +2,10 @@ package com.Caffeine.app.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 
-
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,8 +20,9 @@ public class Coffee {
     private Long id;
 
     @NotNull
-    @Size(min = 5, message = "Name must be at least 5 characters long")
     private String name;
+
+    private BigDecimal coffeePrice = BigDecimal.valueOf(0.00);
 
     private Date createdAt = new Date();
 
@@ -31,5 +32,14 @@ public class Coffee {
     public void addIngredient(Ingredient ingredient) {
         this.ingredients.add(ingredient);
     }
+
+    public void countCoffeePrice(List<Ingredient> ingredients) {
+        for(Ingredient ingredient : ingredients) {
+            BigDecimal ingredientPrice = BigDecimal.valueOf(ingredient.getPrice());
+            coffeePrice = coffeePrice.add(ingredientPrice);
+        }
+        coffeePrice = coffeePrice.setScale(2);
+    }
+
 
 }

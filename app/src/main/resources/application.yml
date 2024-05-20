@@ -1,4 +1,5 @@
 spring:
+
   security:
     oauth2:
       client:
@@ -10,3 +11,16 @@ spring:
   data:
     rest:
       base-path: /data-api
+
+
+  # datasource:
+  #  url: jdbc:postgresql://{localhost:port}/caffeinedb
+  #  username: postgres
+  #  password: {postgres password}
+  #  initialization-mode: always
+  #  data: classpath:schema.sql
+  # jpa:
+  #  hibernate:
+  #  ddl-auto: update
+
+

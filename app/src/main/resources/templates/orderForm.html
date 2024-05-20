@@ -86,7 +86,7 @@
                         <div class="underline"></div>
                         <span class="tooltip">
                             <div class="icon">i</div>
-                            <div class="tooltiptext">You can use 20 times the same digit</div>
+                            <div class="tooltiptext">For testing you can use 20 times the same digit</div>
                         </span>
                     </div>
                     <span class="validationError"
@@ -120,9 +120,13 @@
                 <div class="list">
                     <div class="list-entry" th:each="coffee : ${coffeeOrder.coffees}">
                         <span th:text="${coffee.name}">coffee name</span>
+                        <span>$</span>
+                        <span th:text="${coffee.coffeePrice}">0.00</span>
+                        <a th:href="@{'/design/delete/' + ${coffee.name}}">delete</a>
                     </div>
                 </div>
                 <a th:href="@{/design}" class="green-button" id="another">Design another coffee</a>
+
             </div>
 
         </main>

@@ -45,15 +45,16 @@
         </div>
 
         <button class="green-button" type="submit" value="Login">Login</button>
+        <span><div class="tooltip">
+          <div class="icon">i</div>
+            <div class="tooltiptext">You can use username: 'test' and password: 'test'</div>
+          </div>
+        </span>
 
       </form>
 
       <p><h3>New here?</h3></p>
       <a th:href="@{/register}"><button class="green-button">Click to register</button></a>
-      <span><div class="tooltip">
-        <div class="icon">i</div>
-        <div class="tooltiptext">You can use username: 'test' and password: 'test'</div>
-      </div><span>
 
       <h3>or Login via Github account:</h3>
       <a href="/oauth2/authorization/github">
