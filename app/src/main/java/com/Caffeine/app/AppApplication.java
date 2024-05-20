@@ -39,11 +39,11 @@ public class AppApplication {
 			@Override
 			public void run(String... args) throws Exception {
 
-				Ingredient robust = new Ingredient("ROBUST", "Robust", Type.BEAN, 3.00);
+				Ingredient robust = new Ingredient("ROBUST", "Robust", Type.BEAN, 0.00);
 				repo.save(robust);
-				Ingredient arabic = new Ingredient("ARAB", "Arabic", Type.BEAN, 3.00);
+				Ingredient arabic = new Ingredient("ARAB", "Arabic", Type.BEAN, 0.00);
 				repo.save(arabic);
-				Ingredient blend = new Ingredient("MIX","Arabic/Robust (60%/40%)", Type.BEAN, 3.00);
+				Ingredient blend = new Ingredient("MIX","Arabic/Robust (60%/40%)", Type.BEAN, 0.00);
 				repo.save(blend);
 				Ingredient sugar = new Ingredient("SUGAR", "Sugar", Type.SWEETENER, 0.00);
 				repo.save(sugar);
@@ -71,9 +71,9 @@ public class AppApplication {
 				repo.save(cinnamon);
 				Ingredient pumpkin = new Ingredient("PUMP", "Pumpkin", Type.EXTRA, 0.5);
 				repo.save(pumpkin);
-				Ingredient smallCoffee = new Ingredient("SMALL", "Small (200 ml)", Type.VOLUME, 0.00);
+				Ingredient smallCoffee = new Ingredient("SMALL", "Small (200 ml)", Type.VOLUME, 3.00);
 				repo.save(smallCoffee);
-				Ingredient largeCoffee = new Ingredient("LARGE", "Large (350 ml)", Type.VOLUME, 0.5);
+				Ingredient largeCoffee = new Ingredient("LARGE", "Large (350 ml)", Type.VOLUME, 3.50);
 				repo.save(largeCoffee);
 
 				Coffee coffee1 = new Coffee();

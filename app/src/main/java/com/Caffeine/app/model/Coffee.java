@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,6 +38,7 @@ public class Coffee {
             BigDecimal ingredientPrice = BigDecimal.valueOf(ingredient.getPrice());
             coffeePrice = coffeePrice.add(ingredientPrice);
         }
+        coffeePrice = coffeePrice.setScale(2);
     }
 
 

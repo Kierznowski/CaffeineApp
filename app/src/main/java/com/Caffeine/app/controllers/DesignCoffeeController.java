@@ -65,9 +65,9 @@ public class DesignCoffeeController {
                                                         .count();
         String name = coffee.getName();
 
-        if(beanSelected != 1) {
+        if(beanSelected == 0) {
             bindingResult.rejectValue("ingredients", "error.ingredients",
-                            "Please select one type of Coffee Beans");
+                            "Please select coffee beans");
         }
 
         long volumeSelected = coffee.getIngredients().stream()
@@ -77,10 +77,8 @@ public class DesignCoffeeController {
         if(volumeSelected == 0) {
             bindingResult.rejectValue("ingredients", "error.ingredients",
                     "Please select coffee volume");
-        } else if(volumeSelected > 1) {
-            bindingResult.rejectValue("ingredients", "error.ingredients",
-                    "Please select only one coffee volume");
         }
+
         if(!name.matches("^[a-zA-Z0-9-_ ]*$")) {
             bindingResult.rejectValue("ingredients", "error.name",
                     "The name can only contain alphanumeric characters " +

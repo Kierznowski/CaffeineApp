@@ -152,7 +152,7 @@ body {
 
 .list-entry {
     border-left: solid 4px;
-    padding: 2px;
+    padding: 5px;
     font-size: 20px;
     margin-bottom: 10px;
 
@@ -164,20 +164,29 @@ body {
     font-size: 0.7em;
 }
 
-/* Ingredients view: */
-div.ingredient-group:nth-child(odd) {
-	float: left;
-	padding-right: 20px;
+#price-counter {
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 20 px;
 }
 
-div.ingredient-group:nth-child(even) {
+/* Ingredients view: */
+div.ingredient-group:nth-child(2n+1) {
+	float: left;
+	padding-right: 20px;
+	padding-bottom: 10px;
+}
+
+div.ingredient-group:nth-child(2n) {
     float: left;
 	padding-right: 0;
+	padding-bottom: 10px;
 }
 
 
 div.ingredient-group {
 	width: 50%;
+	box-sizing: border-box;
 }
 
 .grid:after {
@@ -375,6 +384,7 @@ span.validationError {
   display: flex; /* Use flexbox */
   justify-content: flex-start;
   margin-bottom: 20px;
+  margin-top: 10 px;
   position: relative;
   width: 200px;
 }

@@ -120,8 +120,8 @@
                 <div class="list">
                     <div class="list-entry" th:each="coffee : ${coffeeOrder.coffees}">
                         <span th:text="${coffee.name}">coffee name</span>
-                        <span><i>  $<i></span>
-                        <span th:text="${coffee.coffeePrice}"><i>coffee coffeePrice</i></span>
+                        <span>$</span>
+                        <span th:text="${coffee.coffeePrice}">0.00</span>
                         <a th:href="@{'/design/delete/' + ${coffee.name}}">delete</a>
                     </div>
                 </div>
