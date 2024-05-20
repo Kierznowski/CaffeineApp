@@ -53,7 +53,7 @@
               <div class="ingredient-group" id="volume">
                 <h3>Choose coffee volume:</h3>
                 <div th:each="ingredient : ${volume}">
-                  <label class="checkbox">
+                  <label class="checkbox" >
                     <input th:field="*{ingredients}" type="checkbox" th:value="${ingredient.id}"/>
                     <div class="checkmark"></div>
                   </label>
@@ -69,16 +69,12 @@
                     <div class="checkmark"></div>
                   </label>
                   <span class="ingredient-name" th:text="${ingredient.name}">INGREDIENT</span><br/>
-
-
                 </div>
-                </br>
               </div>
 
-
-              <div class="ingredient-group" id="milks">
-                <h3>Choose your milk:</h3>
-                <div th:each="ingredient : ${milk}">
+              <div class="ingredient-group" id="sweeteners">
+                <h3>Choose your sweetener:</h3>
+                <div th:each="ingredient : ${sweetener}">
                   <label class="checkbox">
                     <input th:field="*{ingredients}" type="checkbox" th:value="${ingredient.id}"/>
                     <div class="checkmark"></div>
@@ -87,9 +83,9 @@
                 </div>
               </div>
 
-              <div class="ingredient-group" id="sweeteners">
-                <h3>Choose your sweetener:</h3>
-                <div th:each="ingredient : ${sweetener}">
+              <div class="ingredient-group" id="milks">
+                <h3>Choose your milk:</h3>
+                <div th:each="ingredient : ${milk}">
                   <label class="checkbox">
                     <input th:field="*{ingredients}" type="checkbox" th:value="${ingredient.id}"/>
                     <div class="checkmark"></div>

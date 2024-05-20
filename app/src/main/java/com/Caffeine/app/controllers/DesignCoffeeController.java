@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.regex.Matcher;
 
 @Controller
 @RequestMapping("/design")
@@ -86,6 +85,13 @@ public class DesignCoffeeController {
             bindingResult.rejectValue("ingredients", "error.name",
                     "The name can only contain alphanumeric characters " +
                             "as well as spaces( ), underscores(_) and dashes(-)");
+        }
+
+        for(Coffee cof : coffeeOrder.getCoffees()) {
+            if(cof.getName().equals(coffee.getName())) {
+                bindingResult.rejectValue("ingredients", "error.name",
+                        "There is already coffee with name '" +  name + "' in the order");
+            }
         }
 
         if (bindingResult.hasErrors()) {

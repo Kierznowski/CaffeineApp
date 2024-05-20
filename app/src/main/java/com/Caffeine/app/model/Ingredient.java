@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -14,6 +16,7 @@ public class Ingredient {
     private String id;
     private String name;
     private Type type;
+    private double price;
 
     public enum Type {
         BEAN, MILK, SWEETENER, EXTRA, VOLUME

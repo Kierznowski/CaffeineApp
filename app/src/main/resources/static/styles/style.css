@@ -57,9 +57,16 @@ body {
     width: 2em;
 }
 
-#frappe-img {
+.order-confirmation-message {
+    display: block;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.order-confirmation-message img {
     width: 20em;
 }
+
 
 #anime-smile-img {
     width: 2.5em;
