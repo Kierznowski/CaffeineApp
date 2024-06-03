@@ -1,4 +1,4 @@
-package com.Caffeine.app.adminApi;
+/*package com.Caffeine.app.adminApi;
 
 import com.Caffeine.app.model.Ingredient;
 import com.Caffeine.app.repositories.IngredientRepository;
@@ -36,3 +36,4 @@ public class IngredientController {
     }
 
 }
+*/
