@@ -1,4 +1,4 @@
-package com.Caffeine.app.controllers;
+package com.Caffeine.app.services;
 
 import com.Caffeine.app.model.Ingredient;
 import com.Caffeine.app.repositories.IngredientRepository;
