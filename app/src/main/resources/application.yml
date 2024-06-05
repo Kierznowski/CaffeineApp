@@ -5,13 +5,14 @@ spring:
       client:
         registration:
           github:
-            clientId: 36bbceb4c36793d6c2b4
-            clientSecret: d67aa651b62a59090f2b44a1eb17c9f2537b015b
+            clientId: ${GITHUB_CLIENT_ID}
+            clientSecret: ${GITHUB_CLIENT_SECRET}
             scope: email, public_profile
   data:
     rest:
       base-path: /data-api
-
+  profiles:
+    active: dev;
 
   # datasource:
   #  url: jdbc:postgresql://{localhost:port}/caffeinedb
@@ -21,6 +22,6 @@ spring:
   #  data: classpath:schema.sql
   # jpa:
   #  hibernate:
-  #  ddl-auto: update
+  #   ddl-auto: update
 
 
