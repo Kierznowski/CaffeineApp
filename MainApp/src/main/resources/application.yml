@@ -1,0 +1,35 @@
+spring:
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: ${GITHUB_CLIENT_ID}
+            clientSecret: ${GITHUB_CLIENT_SECRET}
+            scope: email, public_profile
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
+  data:
+    rest:
+      base-path: /data-api
+  profiles:
+    active: dev;
+
+server:
+  port: 8000
+
+
+
+  # datasource:
+  #  url: jdbc:postgresql://{localhost:port}/caffeinedb
+  #  username: postgres
+  #  password: {postgres password}
+  #  initialization-mode: always
+  #  data: classpath:schema.sql
+  # jpa:
+  #  hibernate:
+  #   ddl-auto: update
+
+
