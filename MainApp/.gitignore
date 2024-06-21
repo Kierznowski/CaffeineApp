@@ -21,6 +21,8 @@ target/
 
 # Ignore environment variable files
 .env
+#ignore passwords and secret codes
+secrets.yml
 
 ### NetBeans ###
 /nbproject/private/
