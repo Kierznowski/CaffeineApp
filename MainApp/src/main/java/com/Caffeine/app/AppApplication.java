@@ -95,6 +95,9 @@ public class AppApplication {
 				userRepository.save(new User("Przemek", passwordEncoder.encode("password"),
 						"Przemek", "street", "city", "00-100", "111111111"));
 
+				userRepository.save(new User("caffeineadmin", passwordEncoder.encode("password"),
+						"Przemek", "street", "city", "00-100", "111111111"));
+
 
 			}
 		};

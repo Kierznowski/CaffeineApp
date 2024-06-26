@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Ingredients</title>
+</head>
+
+<body>
+    <h2>Caffeine Admin: Ingredients Manager</h2>
+
+    <form method="POST" th:action="@{/admin/ingredients}">
+        ID: <input type="text" name="id"></input><br/>
+        Name: <input type="text" name="name"></input><br/>
+        Type: <input type="type" name="type"></input><br/>
+        Price: <input type="price" name="price"></input><br/>
+        <input type="submit" />
+    </form>
+
+    <hr/>
+
+    <ul>
+        <li th:each="ingredient: ${ingredients}" th:text="${ingredient.name}"></li>
+    </ul>
+</body>
+</html>

@@ -17,6 +17,7 @@ public class IngredientController {
     }
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public Iterable<Ingredient> getAllIngredients() {
         return ingredientRepository.findAll();
     }

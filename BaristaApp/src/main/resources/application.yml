@@ -1,0 +1,6 @@
+spring:
+  artemis:
+    host: artemis.caffeine.com
+    port: 61617
+    user: caffeine
+    password: testPassword
