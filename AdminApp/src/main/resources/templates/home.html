@@ -10,5 +10,8 @@
     <ul>
         <li><a th:href="@{/admin/ingredients}">Manage Ingredients</a></li>
     </ul>
+    <ul>
+        <li th:each="ingredient: ${ingredients}" th:text="${ingredient.name}"></li>
+    </ul>
 </body>
 </html>

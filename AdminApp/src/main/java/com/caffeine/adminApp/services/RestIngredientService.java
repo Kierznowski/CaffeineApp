@@ -1,6 +1,5 @@
 package com.caffeine.adminApp.services;
 
-import com.caffeine.adminApp.configuration.ClientSecurityConfig;
 import com.caffeine.adminApp.model.Ingredient;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.client.*;
@@ -24,7 +23,7 @@ public class RestIngredientService implements IngredientService {
     @Override
     public Iterable<Ingredient> findAll() {
         return Arrays.asList(restTemplate.getForObject("http://localhost:8080/api/ingredients",
-                Ingredient.class));
+                Ingredient[].class));
     }
 
     @Override
@@ -36,10 +35,10 @@ public class RestIngredientService implements IngredientService {
     private ClientHttpRequestInterceptor getBearerTokenInterceptor(String accessToken) {
         ClientHttpRequestInterceptor interceptor = new ClientHttpRequestInterceptor() {
             @Override
-            public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
+            public ClientHttpResponse intercept(HttpRequest request, byte[] bytes, ClientHttpRequestExecution execution)
                     throws IOException {
                 request.getHeaders().add("Authorization", "Bearer" + accessToken);
-                return execution.execute(request, body);
+                return execution.execute(request, bytes);
             }
         };
         return interceptor;

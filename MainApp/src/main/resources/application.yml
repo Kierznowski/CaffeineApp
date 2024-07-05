@@ -12,7 +12,7 @@ spring:
             scope: email, public_profile
       resourceserver:
         jwt:
-          jwk-set-uri: http://localhost:9000/oauth2/jwks
+          jwk-set-uri: http://localhost:9090/oauth2/jwks
           issuer-uri: http://authserver:9000
 
   artemis:
